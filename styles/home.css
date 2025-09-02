@@ -1,0 +1,321 @@
+
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; color: #fff; background: #000; overflow-x: hidden; }
+
+    /* Barra de progresso no topo */
+    #progress {
+      position: fixed; inset: 0 auto auto 0; height: 4px; width: 0; z-index: 9999;
+      background: linear-gradient(90deg, #2ad, #7df, #0ff);
+      transition: width .1s linear;
+    }
+
+    /* Container e painéis */
+    .container { /* a altura é a soma das sections (cada uma 100vh) */ }
+
+    .panel {
+      position: sticky; /* CSS-only pin */
+      top: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate; /* cria novo contexto para z-index */
+    }
+
+    /* Camada de vídeo/imagem de fundo */
+    .bg {
+      position: absolute; inset: 0; z-index: -1;
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(1.05);
+    }
+
+    /* Conteúdo central (botão) */
+    .center {
+      display: grid; gap: 1rem; place-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .btn {
+      appearance: none; border: none; cursor: pointer;
+      padding: 0.9rem 1.4rem; font-size: 1rem; letter-spacing: 0.4px;
+      color: #fff; background: rgba(255,255,255,0.15);
+      border-radius: 999px; backdrop-filter: blur(8px);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,0.25); }
+
+    /* Z-index para revelar a de baixo por cima da de cima */
+    /* Quanto MAIOR o z-index, mais acima na pilha. As de baixo (posteriores) cobrem as anteriores. */
+    .panel:nth-child(1) { z-index: 3; }
+    .panel:nth-child(2) { z-index: 4; }
+    .panel:nth-child(3) { z-index: 5; }
+    .panel:nth-child(4) { z-index: 6; }
+
+    /* Tratamento para videos em iOS: evita layout jumps */
+    video { transform: translateZ(0); }
+
+    /* Fallbacks de background caso o vídeo não carregue */
+    .panel.fallback-1 { background: radial-gradient(80% 80% at 50% 50%, #0a0a0a, #000); }
+    .panel.fallback-2 { background: radial-gradient(80% 80% at 50% 50%, #101018, #000); }
+    .panel.fallback-3 { background: radial-gradient(80% 80% at 50% 50%, #181010, #000); }
+    .panel.fallback-4 { background: radial-gradient(80% 80% at 50% 50%, #101812, #000); }
+
+    /* Indicador de rolagem (opcional) */
+    .hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); opacity: .8; font-size: .9rem; }
+
+
+    /*header*/
+
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      padding: 15px 40px;
+      position: relative;
+    }
+
+    /* Ícone do menu */
+    .menu-icon {
+      position: absolute;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Logo no meio */
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+.logo img {
+  max-height: 50px;   /* controla a altura máxima */
+  width: auto;        /* mantém proporção */
+  display: block;     /* remove espaçamento indesejado */
+}
+    /* Menu fullscreen oculto */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease-in-out;
+      z-index: 999;
+    }
+
+    .menu-overlay.show {
+      transform: translateX(0);
+    }
+
+    .menu-overlay a {
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu-overlay a:hover {
+      color: #00fff2;
+    }
+
+    /* Botão de fechar */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .sec10 {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+      padding: 60px 20px;
+     
+      margin: auto;
+    }
+
+    .card {
+      flex: 1;
+      background: rgba(150, 150, 150, 0.459);
+      padding: 30px;
+      color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .btn2 {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #00cbe600;
+      border: 2px solid rgb(0, 255, 242); /* vermelho estilo ifood */
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn2:hover {
+      background: #00fff2;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+      }
+    }
+
+
+    
+    footer {
+      background: #111;
+      padding: 40px 60px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
+
+    footer p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    footer a {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #f44336;
+    }
+
+    .social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      font-size: 20px;
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      color: #fff;
+    }
+
+    .copy {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media (max-width: 900px) {
+      footer {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      footer {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*bio*/
+    .bio-section {
+  background: #000; /* fundo preto */
+  color: #fff;
+  padding: 4rem 2rem;
+   background-image: url('../assets/bolha2.png');
+  background-repeat: no-repeat;
+
+  
+ 
+}
+
+.bio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+.bio-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.bio-text p {
+  margin-bottom: 1.2rem;
+}
+
+.bio-image {
+  flex: 0.6;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bio-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  
+}
