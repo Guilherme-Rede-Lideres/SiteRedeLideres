@@ -319,3 +319,66 @@
   border-radius: 10px;
   
 }
+ /*bio*/
+    .bio-section {
+  background: #000; /* fundo preto */
+  color: #fff;
+  padding: 4rem 2rem;
+   background-image: url('../assets/bolha2.png');
+  background-repeat: no-repeat;
+
+  
+ 
+}
+
+.bio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+.bio-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.bio-text p {
+  margin-bottom: 1.2rem;
+}
+
+.bio-image {
+  flex: 0.6;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bio-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  
+}
+
+@media (max-width: 768px) {
+  .bio-container {
+    flex-direction: column; /* mantém a coluna vertical */
+    align-items: center;
+  }
+
+  .bio-image {
+    order: -1; /* faz a imagem aparecer antes do texto */
+    width: 100%;
+    margin-bottom: 2rem; /* espaço abaixo da imagem */
+  }
+
+  .bio-text {
+    flex: unset;
+    width: 100%;
+    order: 0; /* mantém o texto depois da imagem */
+  }
+}
