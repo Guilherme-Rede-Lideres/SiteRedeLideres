@@ -407,3 +407,31 @@ font-size: 18px;
 .next {
   right: 10px;
 }
+
+@media (min-width: 600px) {
+  .video-item {
+    flex: 0 0 45%;
+  }
+    .prev {
+  left: -26px;
+}
+
+.next {
+  left: -26px;
+}
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .video-item {
+    flex: 0 0 30%;
+  }
+
+  .prev {
+  left: -26px;
+}
+
+.next {
+  left: -26px;
+}
+}
