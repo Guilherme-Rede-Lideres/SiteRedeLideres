@@ -82,7 +82,7 @@
     .hero {
   position: relative;
   height: 70vh; /* ocupa a tela toda */
-
+  background: url('../assets/squad.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: start;
