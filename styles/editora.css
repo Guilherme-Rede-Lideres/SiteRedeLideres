@@ -267,6 +267,36 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+.livro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.livro img {
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.livro button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff00;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 50%;
+}
+
+.livro button:hover {
+  background-color: #00000034;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .galeria-section {
