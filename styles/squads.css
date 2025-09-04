@@ -1,0 +1,415 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; color: #fff; background: #000; overflow-x: hidden; }
+
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      padding: 15px 40px;
+      position: relative;
+    }
+
+    /* Ícone do menu */
+    .menu-icon {
+      position: absolute;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Logo no meio */
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+.logo img {
+  max-height: 50px;   /* controla a altura máxima */
+  width: auto;        /* mantém proporção */
+  display: block;     /* remove espaçamento indesejado */
+}
+    /* Menu fullscreen oculto */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease-in-out;
+      z-index: 999;
+    }
+
+    .menu-overlay.show {
+      transform: translateX(0);
+    }
+
+    .menu-overlay a {
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu-overlay a:hover {
+      color: #00fff2;
+    }
+
+    /* Botão de fechar */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+
+    /*main */
+
+    .hero {
+  position: relative;
+  height: 70vh; /* ocupa a tela toda */
+  background: url('../assets/squad.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  text-align: start;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+}
+
+.hero .content {
+  position: relative; /* fica acima do overlay */
+  z-index: 1;
+  padding: 70px;
+}
+
+.wrap{
+padding:32px 16px 24px;
+text-align:center;
+justify-content: center;
+}
+h1{
+font-size:clamp(1.2rem,1.3rem + 1vw,2rem);
+margin:0 0 12px; font-weight:700; letter-spacing:.2px;
+color:var(--text);
+}
+p.lead{margin:.25rem 0 1.25rem; color:var(--text)}
+
+
+.steps{
+display:flex; 
+justify-content:center; 
+gap: clamp(20px, 4vw, 40px);
+margin-top:40px;
+}
+.step{ display:grid; justify-items:center; align-content:start; row-gap:14px; }
+
+
+.circle{
+width:100px; height:100px; border-radius:50%;
+border:4px solid #00f7ff; background:#1e293b;
+display:grid; place-items:center; font-weight:700;
+font-size: clamp(1rem, .6rem + 1.8vw, 1.4rem);
+color:var(--muted); position:relative; overflow:visible;
+transform: scale(.92);
+transition: transform .5s ease, border-color .5s ease, color .5s ease, box-shadow .5s ease;
+box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.circle span{ pointer-events:none;}
+
+
+.circle::after{
+content:""; position:absolute; inset:-8px; border-radius:50%; border:4px solid transparent;
+transform: scale(.7); opacity:0;
+}
+
+
+.caption{
+margin:0; font-size: .9rem; text-align:center; line-height:1.3; color:var(--text);
+opacity:0; transform: translateY(-6px);
+transition: opacity .45s ease, transform .45s ease;
+min-height: 2.6em;
+}
+
+
+.step.active .circle{
+border-color: var(--accent);
+color: var(--accent);
+transform: scale(1);
+box-shadow: 0 8px 30px rgba(137, 207, 240, .6);
+}
+.step.active .circle::after{
+border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+animation: ring 900ms ease-out forwards;
+}
+.step.active .caption{ opacity:1; transform: translateY(0); }
+
+
+@keyframes ring{
+0%{ transform: scale(.7); opacity: 0; }
+35%{ opacity: 1; }
+100%{ transform: scale(1.2); opacity: 0; }
+}
+
+
+.controls{ display:flex; gap:10px; justify-content:center; margin-top:24px; }
+.btn{
+appearance:none; border:2px solid var(--accent); background:transparent; color:var(--text);
+padding:10px 16px; border-radius:999px; cursor:pointer; font-weight:600;
+transition: border-color .2s ease, background .2s ease, transform .05s ease;
+}
+.btn:hover{ background:rgba(137,207,240,0.2); }
+.btn:active{ transform: translateY(1px); }
+
+
+/*sobre */
+
+:root{
+  --max-width: 1100px;
+  --gap: 1.25rem;
+  --radius: 12px;
+  --text-color: #222;
+}
+
+*{box-sizing: border-box}
+body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #fff; color:var(--text-color); }
+
+.simple-section{
+  background: #ffffff; /* fundo branco */
+  padding: 4rem 1rem;
+}
+
+.simple-section .container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* título e texto */
+.section-title{
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-text{
+  margin: 0 0 2rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* grid das fotos */
+.photos{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  align-items: start;
+  justify-items: center;
+}
+
+/* cada foto */
+.photo{
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.photo img{
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* legenda */
+.photo figcaption{
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: left;
+}
+
+/* hover */
+.photo:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* desktop: duas colunas */
+@media (min-width: 760px){
+  .photos{
+    grid-template-columns: 1fr 1fr;
+  }
+  .photo img{
+    height: 300px;
+  }
+}
+
+
+
+/*video*/
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 20vh; 
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #fff;
+    padding: 70px;
+}
+
+.video-section2 {
+  position: relative;
+  width: 100%;
+  height: 80vh; 
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #fff;
+    padding: 70px;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: start;
+}
+
+.content h2 {
+font-size: 18px;
+  font-weight: 600;
+    font-family: 'REDE-BOLD', sans-serif;
+}
+
+/*SQUADS PILARES*/
+.pilares-section {
+  background: #ffffff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.pilares-section .section-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.5rem;
+   font-family: 'REDE-BOLD', sans-serif;
+}
+
+.pilares-section .section-text {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  color: #000000;
+  line-height: 1.5;
+
+}
+
+.pilares-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-items: center;
+}
+
+.pilar {
+  text-align: center;
+  max-width: 180px;
+}
+
+.pilar-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #00ffea;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+
+.pilar h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+   font-family: 'REDE-REGULAR', sans-serif;
+}
+
+.pilar p {
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+/* Desktop: 5 colunas */
+@media (min-width: 900px){
+  .pilares-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-section {
+    height: 40vh;
+  }
+  .content h2 {
+    font-size: 1.2rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
