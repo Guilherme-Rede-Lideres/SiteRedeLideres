@@ -60,3 +60,6 @@ toggleBtn.textContent = 'Pausar';
 
 // inicia automaticamente
 start();
+
+
+
