@@ -142,20 +142,19 @@
       font-size: 40px;
       cursor: pointer;
     }
-
-    .sec10 {
+ .sec10 {
       display: flex;
       justify-content: center;
       align-items: stretch;
       gap: 20px;
       padding: 60px 20px;
-     
+     background-color: #111;
       margin: auto;
     }
 
     .card {
       flex: 1;
-      background: rgba(150, 150, 150, 0.459);
+    border: 0.5px solid rgb(0, 255, 242);
       padding: 30px;
       color: #ffffff;
       border-radius: 12px;
@@ -165,6 +164,8 @@
       justify-content: space-between;
       text-align: center;
       transition: transform 0.3s;
+
+      font-family: "rede-regular", sans-serif;
     }
 
     .card:hover {
@@ -181,9 +182,9 @@
       padding: 12px 24px;
       border: none;
       border-radius: 8px;
-      background: #00cbe600;
-      border: 2px solid rgb(0, 255, 242); /* vermelho estilo ifood */
-      color: white;
+      background: #ffffff;
+     /* vermelho estilo ifood */
+      color: rgb(0, 0, 0);
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
@@ -199,7 +200,6 @@
         flex-direction: column;
       }
     }
-
 
     
     footer {
