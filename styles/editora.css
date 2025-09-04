@@ -1,0 +1,282 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; color: #fff; background: #000; overflow-x: hidden; }
+
+/*inicio*/
+
+  .hero {
+  position: relative;
+  height: 94vh; /* ocupa a tela toda */
+  background: url('/assets/DSC09264.jpg') no-repeat  center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  text-align: start;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+}
+
+.hero .content {
+  position: relative; /* fica acima do overlay */
+  z-index: 1;
+  padding: 70px;
+}
+
+
+
+
+.espaço3D {
+    height: 80vh;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    perspective-origin: center;
+    position: relative;
+  background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.capa1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    height: 400px;
+    width: 300px;
+    transform: translateZ(400px);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+    transform-origin: center left;
+    transform-style: preserve-3d;
+}
+
+.capa1 .frente{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    background-image: url('capa.png');
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    flex-direction: column;
+}
+
+.capa1 .costa{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background: #000000;
+}
+
+.capa2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    height: 400px;
+    width: 300px;
+    transform: translateZ(390px);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+    transform-origin: center left;
+    transform-style: preserve-3d;
+}
+
+.capa2 .frente{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    background: #00fff2;
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    flex-direction: column;
+}
+
+.capa2 .costa{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background-image:url('capa.png');
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+.folha{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    height: 395px;
+    width: 295px;
+    transform: translateZ(395px);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+    transform-origin: center left;
+    transform-style: preserve-3d;
+}
+
+.folha .frente{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    background: rgb(0, 0, 0);
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    flex-direction: column;
+}
+
+.folha .costa{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background:rgb(0, 0, 0);
+    transform: rotateY(180deg);
+}
+
+.tituloLivro{
+    width: 160px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 0 0 10px #000000;
+}
+
+.subTituloLivro{
+    color: #000000;
+    text-shadow: 0 0 10px #424242;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .capa1, .capa2, .folha {
+    height: 250px;   /* altura menor */
+    width: 180px;    /* largura menor */
+    margin-top: -125px;
+    margin-left: -90px;
+  }
+
+  .tituloLivro {
+    font-size: 14px;
+    width: 120px;
+  }
+
+  .subTituloLivro {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+
+
+/*sobre*/
+
+.galeria-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  background: #fff;
+  color: #333;
+  gap: 40px;
+}
+
+.galeria-section .texto {
+  flex: 1;
+}
+
+.galeria-section .texto h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.galeria-section .texto p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.galeria-section .galeria {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 15px;
+}
+
+.galeria-section .galeria img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .galeria-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .galeria-section .galeria {
+    grid-template-columns: 1fr; /* uma embaixo da outra no mobile */
+  }
+}
+
+/* END SOBRE */
