@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/styles/squads.css" />
   <link rel="stylesheet" href="/styles/fonts.css" />
   <link rel="stylesheet" href="/styles/topfooter.css">
+  
 
   <title>Rede Lideres</title>
 </head>
@@ -116,76 +117,101 @@
 <section class="video-section2">
   <video autoplay muted loop playsinline class="video-bg">
     <source src="/assets/video2.mp4" type="video/mp4">
-
   </video>
-
   <div class="overlay"></div>
-
   </section>
 
-<section class="video-carousel">
-  <h2>Veja alguns depoimentos de nossos lideres</h2>
 
-  <div class="carousel-container">
-    <button class="nav-btn prev">❮</button>
-    
-    <div class="carousel">
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb1.jpg">
-          <source src="assets/video1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb2.jpg">
-          <source src="assets/video2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/thumb3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+   <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Depoimentos dos Líderes</h2>
+                <p class="section-subtitle">
+                 Veja o que nossos lideres tem a dizer sobre o impacto dos Squads em suas jornadas profissionais.
+                </p>
+            </div>
 
-    <button class="nav-btn next">❯</button>
-  </div>
-</section>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide">
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <div class="play-button" onclick="playVideo(this)"></div>
+                                    Vídeo do Líder 1
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h3 class="leader-name">Maria Silva</h3>
+                                <p class="leader-title">CEO & Fundadora</p>
+                                <p class="testimonial-text">
+                                    "Nossa jornada começou com um sonho simples: transformar vidas através da inovação. Hoje, vemos o impacto real de nosso trabalho em milhares de pessoas."
+                                </p>
+                            </div>
+                        </div>
 
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide">
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <div class="play-button" onclick="playVideo(this)"></div>
+                                    Vídeo do Líder 2
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h3 class="leader-name">João Santos</h3>
+                                <p class="leader-title">Diretor de Inovação</p>
+                                <p class="testimonial-text">
+                                    "A liderança não é sobre estar no topo, mas sobre elevar todos ao seu redor. Nossa equipe é a força motriz por trás de cada conquista."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide">
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <div class="play-button" onclick="playVideo(this)"></div>
+                                    Vídeo do Líder 3
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h3 class="leader-name">Ana Costa</h3>
+                                <p class="leader-title">Diretora de Estratégia</p>
+                                <p class="testimonial-text">
+                                    "Cada desafio é uma oportunidade de crescimento. Nossa abordagem estratégica sempre foca no impacto positivo que podemos gerar na sociedade."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="testimonial-slide">
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <div class="play-button" onclick="playVideo(this)"></div>
+                                    Vídeo do Líder 4
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h3 class="leader-name">Carlos Oliveira</h3>
+                                <p class="leader-title">Diretor de Operações</p>
+                                <p class="testimonial-text">
+                                    "A excelência operacional é nossa base. Construímos processos sólidos que nos permitem escalar sem perder a qualidade e o cuidado com as pessoas."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="nav-button" id="prevBtn" onclick="previousSlide()">‹</button>
+                    <div class="carousel-indicators" id="indicators"></div>
+                    <button class="nav-button" id="nextBtn" onclick="nextSlide()">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
   
