@@ -382,3 +382,344 @@
     order: 0; /* mantém o texto depois da imagem */
   }
 }
+
+
+.section-numbers {
+    min-height: 120vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+}
+
+ .main-section {
+            width: 90%;
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+ 
+
+        }
+
+        /* Lado Esquerdo - Números */
+        .numbers-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .numbers-section h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            font-family: "REDE-BOLD", sans-serif;
+    
+        }
+
+        .number-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #00fff2;
+            text-shadow: 2px 2px 8px rgba(0, 255, 242, 0.5);
+            width: 150px;
+        }
+
+
+
+        .text-content {
+            flex: 1;
+        }
+
+        .text-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Lado Direito */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+      .people-section {
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible; /* garante que o botão apareça */
+}
+        .people-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            font-family: "REDE-BOLD", sans-serif;
+        }
+
+      
+.people-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px; /* reduz o espaço entre cards */
+}
+
+.person-circle {
+    width: 120px;   /* aumentei para caber imagem */
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* garante que a imagem não saia do círculo */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    transition: transform 0.5s ease;
+}
+
+/* imagem dentro do círculo */
+.person-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* corta sem distorcer */
+}
+
+
+
+
+.people-container .person-card {
+    display: none; /* começa escondido */
+      transition: opacity 1.5s ease, transform 1.5s ease; 
+}
+
+/* mostra apenas os visíveis */
+.people-container .person-card.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: popinFade 1s ease-in-out;
+}
+
+        /* animação personalizada */
+@keyframes popinFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;   /* desaparece */
+        transform: scale(0.8);
+    }
+}
+
+.ver-mais-btn {
+    background-color: #007bff00;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: 1px solid white;
+}
+
+.ver-mais-btn:hover {
+    background-color: #00eeff;
+    color: black;
+    border: none;
+}
+
+@media (max-width: 1024px) {
+    .people-container { gap: 20px; }
+    .person-circle { width: 90px; height: 90px; }
+    .person-role, .person-name { font-size: 0.85rem; }
+}
+
+@media (max-width: 768px) {
+    .people-container { gap: 15px; }
+    .person-circle { width: 80px; height: 80px; }
+    .person-role, .person-name { font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+    .people-container { gap: 10px; }
+    .person-circle { width: 70px; height: 70px; }
+    .person-role, .person-name { font-size: 0.7rem; }
+}
+
+      .companies-section {
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* empilha título, logos e botão */
+    align-items: center;    /* centraliza horizontalmente */
+    overflow: visible;      /* permite que conteúdo extra apareça */
+}
+        .companies-title {
+              font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+            font-family: "REDE-BOLD", sans-serif;
+    
+        }
+
+        .companies-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            height: 100%;
+        }
+
+        .company-logo {
+            width: 100px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .company-logo:hover {
+            transform: translateY(30px) scale(1.05);
+        }
+
+   .company-logo:nth-child(1)  { animation-delay: 0s; }
+.company-logo:nth-child(2)  { animation-delay: 0.4s; }
+.company-logo:nth-child(3)  { animation-delay: 0.8s; }
+.company-logo:nth-child(4)  { animation-delay: 1.2s; }
+.company-logo:nth-child(5)  { animation-delay: 1.6s; }
+.company-logo:nth-child(6)  { animation-delay: 2.0s; }
+.company-logo:nth-child(7)  { animation-delay: 2.4s; }
+.company-logo:nth-child(8)  { animation-delay: 2.8s; }
+.company-logo:nth-child(9)  { animation-delay: 3.2s; }
+.company-logo:nth-child(10) { animation-delay: 3.6s; }
+.company-logo:nth-child(11) { animation-delay: 4.0s; }
+.company-logo:nth-child(12) { animation-delay: 4.4s; }
+.company-logo:nth-child(13) { animation-delay: 4.8s; }
+.company-logo:nth-child(14) { animation-delay: 5.2s; }
+.company-logo:nth-child(15) { animation-delay: 5.6s; }
+.company-logo:nth-child(16) { animation-delay: 6.0s; }
+.company-logo:nth-child(17) { animation-delay: 6.4s; }
+.company-logo:nth-child(18) { animation-delay: 6.8s; }
+.company-logo:nth-child(19) { animation-delay: 7.2s; }
+.company-logo:nth-child(20) { animation-delay: 7.6s; }
+
+        /* Animações */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes popIn {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .main-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px;
+            }
+
+            .number {
+                font-size: 3rem;
+            }
+
+            .text-title {
+                font-size: 1.3rem;
+            }
+
+            .person-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .company-logo {
+                width: 80px;
+                height: 50px;
+                font-size: 0.8rem;
+            }
+        }
