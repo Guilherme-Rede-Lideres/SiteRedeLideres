@@ -206,7 +206,7 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   height: 20vh; 
   overflow: hidden;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   color: #fff;
     padding: 70px;
