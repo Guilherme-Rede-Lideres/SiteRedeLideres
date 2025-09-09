@@ -324,8 +324,11 @@
   background: #000; /* fundo preto */
   color: #fff;
   padding: 4rem 2rem;
-   background-image: url('../assets/bolha2.png');
+   background-image: url('../assets/imagem.png');
+   background-size: cover;
   background-repeat: no-repeat;
+  
+
 
   
  
@@ -356,6 +359,7 @@
   padding: 0px 20px;
   display: flex;
   justify-content: center;
+
 }
 
 .bio-image img {
