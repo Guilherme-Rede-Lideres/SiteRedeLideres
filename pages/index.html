@@ -21,9 +21,8 @@
   <div class="menu-overlay" id="menuOverlay">
     <div class="close-btn" id="closeBtn">&times;</div>
     <a href="/pages/index.html">Ínicio</a>
-    <a href="/pages/editora.html">Nossas Soluções</a>
-    <a href="/pages/squads.html">Validação</a>
-    <a href="/pages/squads.html">H2H Match</a>
+    <a href="/pages/produtos.html">Nossas Soluções</a>
+    <a href="https://depoimentos-redelideres-5w1wyyv.gamma.site/">Validação</a>
   </div>
 
 
@@ -31,14 +30,27 @@
 
   <main class="container">
 
-        <section id="sec1" class="panel fallback-1">
-      <video id="videoinicio" class="bg" autoplay muted loop playsinline preload="auto">
-        <source src="/assets/REDE LIDERES (4).mp4" type="video/mp4" />
-      </video>
-      <div class="center">
-      </div>
-      <div class="hint">role para explorar ↓</div>
-    </section>
+      <section id="sec1" class="panel fallback-1">
+  <!-- vídeo de fundo -->
+  <video id="videoinicio" class="bg" autoplay muted loop playsinline preload="auto">
+    <!-- vídeo para telas pequenas -->
+    <source src="../assets/videobolha.mp4" type="video/mp4" media="(max-width: 768px)">
+    <!-- vídeo padrão (desktop) -->
+    <source src="../assets/videobolha.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+
+  <!-- camada escura -->
+  <div class="overlay"></div>
+
+  <!-- texto centralizado -->
+  <div class="center-text">
+    <h2>ACCOUNT-BASED MARKETING E CONHECIMENTO PARA PESSOAS E EMPRESAS</h2>
+    <p>REVOLUCIONAMOS A FORMA DE GERAR NEGÓCIOS, OPORTUNIDADES E CONHECIMENTO B2B2C NO BRASIL</p>
+  </div>
+
+  <div class="hint">role para explorar ↓</div>
+</section>
 
     <section id="sec1" class="panel fallback-1">
       <video id="video1" class="bg" autoplay muted loop playsinline preload="auto">
@@ -173,7 +185,7 @@
       <div class="right-section">
     <!-- Seção de Pessoas -->
     <div class="people-section">
-    <h2 class="people-title">Líderes</h2>
+    <h2 class="people-title">Comunidade de Líderes</h2>
     <div class="people-container lideres-grid">
         <!-- LIDERES 1 A 9 -->
        <div class="person-card">
@@ -267,7 +279,6 @@
 
    <div class="companies-section">
     <h3 class="companies-title">Empresas Participantes</h3>
-    <p style="font-size: 20px; color: rgba(0, 255, 255, 0.774); font-family: 'Rede Bold'; margin-bottom: 30px;">+ 600 Empresas</p>
     <div class="companies-container">
         <!-- 20 parceiros -->
         <div class="company-logo"><img src="../assets/Logos/Paypal_2014_logo.png" alt="PayPal" /></div>
@@ -494,7 +505,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCount();
   };
-
+ const video = document.getElementById("videoinicio");
+  video.playbackRate = 0.7; // 0.5 = metade da velocidade, 1 = normal, 2 = dobro
   // Observer para detectar quando a section entra na tela
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
