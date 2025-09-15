@@ -534,7 +534,9 @@
 }
 
 
-
+.number::before {
+  content: "+";
+}
 
 
 

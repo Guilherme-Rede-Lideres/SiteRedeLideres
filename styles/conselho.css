@@ -1,0 +1,142 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; color: #fff; background: #000; overflow-x: hidden; }
+
+    
+
+:root{
+  --max-width: 1100px;
+  --gap: 1.25rem;
+  --radius: 12px;
+  --text-color: #222;
+}
+
+*{box-sizing: border-box}
+body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #fff; color:var(--text-color); }
+
+.simple-section{
+  background: #ffffff; /* fundo branco */
+  padding: 4rem 1rem;
+}
+
+.simple-section .container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* título e texto */
+.section-title{
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-text{
+  margin: 0 0 2rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* grid das fotos */
+.photos{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  align-items: start;
+  justify-items: center;
+}
+
+/* cada foto */
+.photo{
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.photo img{
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* legenda */
+.photo figcaption{
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: left;
+}
+
+/* hover */
+.photo:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* desktop: duas colunas */
+@media (min-width: 760px){
+  .photos{
+    grid-template-columns: 1fr 1fr;
+  }
+  .photo img{
+    height: 300px;
+  }
+}
+
+
+
+/*video*/
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 20vh; 
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+    padding: 70px;
+}
+
+.video-section2 {
+  position: relative;
+  width: 100%;
+  height: 80vh; 
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #fff;
+    padding: 70px;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  z-index: 1;
+}

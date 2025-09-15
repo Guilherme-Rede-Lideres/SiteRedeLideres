@@ -29,7 +29,7 @@
       letter-spacing: 2px;
     }
 .logo img {
-  max-height: 50px;   /* controla a altura máxima */
+  max-height: 90px;   /* controla a altura máxima */
   width: auto;        /* mantém proporção */
   display: block;     /* remove espaçamento indesejado */
 }
