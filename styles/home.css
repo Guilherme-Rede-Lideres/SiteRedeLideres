@@ -802,3 +802,40 @@
 }
 
 
+@media (max-width: 768px) {
+  .section-numbers {
+    min-height: auto;
+    padding: 30px 5px;
+    display: block;
+  }
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 10px;
+  }
+  .numbers-section {
+    gap: 30px;
+  }
+  .number-item {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .number {
+    font-size: 2.2rem;
+    width: auto;
+  }
+  .numbers-section h2,
+  .people-title,
+  .companies-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .companies-container {
+    gap: 10px;
+  }
+  .company-logo {
+    width: 60px;
+    height: 40px;
+  }
+}

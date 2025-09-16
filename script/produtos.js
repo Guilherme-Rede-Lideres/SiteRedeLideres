@@ -174,3 +174,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
          AOS.init();
         });
+
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.card-livro');
+  
+  cards.forEach(card => {
+    const btnCoautores = card.querySelector('.btn-coautores');
+    const overlay = card.querySelector('.overlay');
+    const imgCapa = card.querySelector('img:not(.img-coautores)');
+    const imgCoautores = card.querySelector('.img-coautores');
+    
+    // Evento para o botão "Co-autores"
+    btnCoautores.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      
+      overlay.style.opacity = '0';
+      imgCapa.style.opacity = '0';
+    
+      imgCoautores.style.opacity = '1';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      imgCapa.style.opacity = '1';
+      imgCoautores.style.opacity = '0';
+      
+      overlay.style.opacity = '0';
+    });
+    
+    card.addEventListener('mouseenter', () => {
+        if (imgCoautores.style.opacity !== '1') {
+            overlay.style.opacity = '1';
+        }
+    });
+  });
+});
