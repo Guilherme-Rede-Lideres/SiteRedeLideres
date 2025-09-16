@@ -144,12 +144,36 @@
       footer {
         grid-template-columns: 1fr 1fr;
       }
+
+          header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #111;
+      color: #fff;
+      padding: 10px 25px;
+      position: relative;
+    }
     }
 
     @media (max-width: 600px) {
       footer {
         grid-template-columns: 1fr;
       }
+
+      
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #111;
+      color: #fff;
+      padding: 10px 25px;
+      position: relative;
+    }
     }
 
    .sec10 {

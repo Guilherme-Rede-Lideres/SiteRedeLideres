@@ -1141,3 +1141,65 @@ section.timeline::before {
   color: #fff;
   padding: 70px;
 }
+
+@media (max-width: 768px) {
+  .sec10 {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 10px;
+    align-items: stretch;
+  }
+  .sec10 .card {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    padding: 20px;
+  }
+  .btn2 {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .main-section,
+  .topics-section,
+  .pilares-section,
+  #nossa-proposta,
+  #livros-em-destaque {
+    padding: 20px 8px;
+  }
+  .section-title,
+  .section-titlee {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .topics-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .pilares-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .btn2, .btn, .btn-artigo {
+    font-size: 1.1rem;
+    padding: 14px 0;
+  }
+  .card, .card-artigos, .card-livro {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+}
