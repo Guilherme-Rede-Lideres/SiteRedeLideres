@@ -729,7 +729,13 @@
     max-width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
+    
   }
+
+.center-text {
+  text-align: start; 
+}
+
   .container,
   .bio-container {
     max-width: 100vw;
@@ -743,6 +749,10 @@
     min-height: auto;
     padding: 30px 5px;
     display: block;
+  }
+ .companies-title,
+  .people-section{
+        padding: 0px 20px 0px 51px;
   }
   .main-section {
     grid-template-columns: 1fr;
