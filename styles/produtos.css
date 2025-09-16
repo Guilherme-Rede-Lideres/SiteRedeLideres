@@ -499,53 +499,6 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   }
 }
 
-/* SEC10 */
-.sec10 {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  padding: 40px 0;
-  background: #fff;
-}
-.card {
-  background: #00fff2;
-  color: #000;
-  border-radius: 16px;
-  padding: 32px 24px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  font-size: 1.2rem;
-  font-weight: 500;
-  max-width: 340px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.btn2 {
-  margin-top: 18px;
-  background: #000;
-  color: #00fff2;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-
-}
-.btn2:hover {
-  background: #00fff2;
-  color: #000;
-  border: 1px solid #000;
-}
-@media (max-width: 900px) {
-  .sec10 {
-    flex-direction: column;
-    gap: 18px;
-    align-items: center;
-  }
-}
-
 
 
 
@@ -1176,3 +1129,15 @@ section.timeline::before {
 
 }
         /* end card artigos */
+
+        .video-section3 {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #fff;
+  padding: 70px;
+}
