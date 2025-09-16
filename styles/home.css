@@ -66,57 +66,7 @@
     /* Indicador de rolagem (opcional) */
     .hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); opacity: .8; font-size: .9rem; }
 
- .sec10 {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 20px;
-      padding: 60px 20px;
-     background-color: #111;
-      margin: auto;
-    }
 
-    .card {
-      flex: 1;
-    border: 0.5px solid rgb(0, 255, 242);
-      padding: 30px;
-      color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-      transition: transform 0.3s;
-
-      font-family: "rede-regular", sans-serif;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .btn2 {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      background: #ffffff;
-      color: rgb(0, 0, 0);
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn2:hover {
-      background: #00fff2;
-    }
 
     @media (max-width: 768px) {
       section {
@@ -520,6 +470,15 @@
     .people-container { gap: 10px; }
     .person-circle { width: 70px; height: 70px; }
     .person-role, .person-name { font-size: 0.7rem; }
+
+     /* Lado Esquerdo - Números */
+        .numbers-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+           align-items: center;
+            gap: 60px;
+        }
 }
 
       .companies-section {
@@ -761,11 +720,13 @@
   }
   .numbers-section {
     gap: 30px;
+    align-items: center;
+    text-align: center;
   }
   .number-item {
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
   }
   .number {
     font-size: 2.2rem;
