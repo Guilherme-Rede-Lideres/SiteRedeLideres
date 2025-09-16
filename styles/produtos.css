@@ -1211,6 +1211,7 @@ img, video {
     max-width: 100vw;
     overflow-x: hidden;
   }
+  #livros-em-destaque,
   .main-section,
   .section-numbers,
   .bio-section,
