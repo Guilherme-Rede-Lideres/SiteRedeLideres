@@ -1211,7 +1211,7 @@ img, video {
     max-width: 100vw;
     overflow-x: hidden;
   }
-
+.card-livro,
   .container-cards {
     width: auto;
   }
