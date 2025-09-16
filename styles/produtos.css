@@ -1212,8 +1212,10 @@ img, video {
     overflow-x: hidden;
   }
 .card-livro,
+.card-livro img,
   .container-cards {
     width: auto;
+    background-size: cover;
   }
   
   #livros-em-destaque,
