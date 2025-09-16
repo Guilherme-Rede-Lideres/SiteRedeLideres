@@ -34,23 +34,24 @@
   display: block;     /* remove espaçamento indesejado */
 }
     /* Menu fullscreen oculto */
-    .menu-overlay {
+   .menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(17, 17, 17, 0.95);
+      background: rgba(24, 24, 24, 0.986);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 30px;
+      gap: 40px;
       transform: translateX(-100%);
       transition: transform 0.4s ease-in-out;
       z-index: 999;
+      font-family: "rede-regular", sans-serif;
+      background-image: url('../assets/bolha2.png');
     }
-
     .menu-overlay.show {
       transform: translateX(0);
     }
@@ -151,7 +152,7 @@
       }
     }
 
-      .sec10 {
+   .sec10 {
       display: flex;
       justify-content: center;
       align-items: stretch;
@@ -170,6 +171,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
+      background-color: transparent;
       justify-content: space-between;
       text-align: center;
       transition: transform 0.3s;
@@ -192,7 +194,6 @@
       border: none;
       border-radius: 8px;
       background: #ffffff;
-     /* vermelho estilo ifood */
       color: rgb(0, 0, 0);
       font-size: 16px;
       font-weight: bold;

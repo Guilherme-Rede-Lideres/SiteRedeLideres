@@ -66,11 +66,12 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   margin: 0 auto;
   text-align: center;
 }
-.section-title{
+.section-titlee{
   margin: 0 0 0.5rem 0;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.01em;
+  font-family: "REDE-BOLD", sans-serif;
 }
 .section-text{
   margin: 0 0 2rem 0;
@@ -530,7 +531,7 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+
 }
 .btn2:hover {
   background: #00fff2;
@@ -543,4 +544,193 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
     gap: 18px;
     align-items: center;
   }
+}
+
+
+
+
+section.timeline {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: url("../assets/bolha2.png") no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+/* Filtro escuro */
+section.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+.timeline-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  padding: 0 80px;
+  gap: 60px; /* espaço entre texto e navegação */
+  width: 100%;
+  max-width: 1200px;
+}
+
+.timeline-content {
+  max-width: 600px;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s ease;
+}
+
+.timeline-content.fade-out {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.timeline-content.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-content .year {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #00fff2;
+}
+
+.timeline-content h1 {
+  font-size: 2.9rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Navegação */
+.timeline-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  padding-right: 20px;
+}
+
+.timeline-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.timeline-nav ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-nav li {
+  cursor: pointer;
+  margin: 12px 0;
+  color: #00fff2;
+  font-style: italic;
+  transition: color 0.3s;
+  position: relative;
+  text-align: right;
+}
+
+.timeline-nav li.active {
+  font-weight: bold;
+}
+
+.timeline-nav li.active::before {
+  content: "•";
+  position: absolute;
+  right: -25px;
+  color: #00fff2;
+  font-size: 1.2rem;
+}
+
+.timeline-nav .arrow {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #00fff2;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  section.timeline {
+    align-items: flex-start;
+    padding: 40px 20px;
+    text-align: center;
+    height: auto;
+  }
+
+  .timeline-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+  }
+
+  .timeline-content {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .timeline-nav {
+    align-items: center;
+  }
+
+  .timeline-nav ul::before {
+    display: none;
+  }
+
+  .timeline-nav li {
+    text-align: center;
+  }
+}
+
+.hero2 {
+  position: relative;
+  height: 70vh; /* ocupa a tela toda */
+  background: url('../assets/squad.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  text-align: start;
+}
+
+.hero2 .overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+}
+
+.hero2 .content2 {
+  position: relative; /* fica acima do overlay */
+  z-index: 1;
+  padding: 70px;
 }
