@@ -1189,12 +1189,29 @@ img, video {
 @media (max-width: 480px) {
   .btn2, .btn, .btn-artigo {
     font-size: 1.1rem;
-    padding: 14px 0;
+
+  
   }
   .card, .card-artigos, .card-livro {
     font-size: 0.95rem;
     padding: 12px;
   }
+
+
+.card-livro {
+    width: 90%;
+    height: auto;
+  }
+  .card-livro img {
+    height: auto;
+  }
+
+  .btn-comprar, .btn-coautores {
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 180px;
+  }
+
 }
 
 
@@ -1500,4 +1517,15 @@ img, video {
 
 
 
-        
+        /* No mobile: inverte */
+@media (max-width: 768px) {
+  .timeline-content {
+    order: 3;
+  }
+  .timeline-nav {
+    order: 2;
+  }
+    .timeline-content h1 {
+    order: 1;
+  }
+}
