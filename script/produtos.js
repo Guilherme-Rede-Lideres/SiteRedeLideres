@@ -176,37 +176,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-
-      document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card-livro');
-  
+
   cards.forEach(card => {
     const btnCoautores = card.querySelector('.btn-coautores');
     const overlay = card.querySelector('.overlay');
     const imgCapa = card.querySelector('img:not(.img-coautores)');
     const imgCoautores = card.querySelector('.img-coautores');
-    
-    // Evento para o botão "Co-autores"
+
+    let mostrandoCoautores = false;
+    let mostrandoOverlay = false;
+
+    // ===== PC (hover) =====
+    card.addEventListener('mouseenter', () => {
+      if (!mostrandoCoautores && !isMobile()) {
+        overlay.style.opacity = '1';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (!mostrandoCoautores && !isMobile()) {
+        overlay.style.opacity = '0';
+      }
+    });
+
+    // ===== Mobile (clique) =====
+    card.addEventListener('click', (e) => {
+      // se clicou no botão, não fecha o overlay
+      if (e.target.closest('.btn')) return;
+
+      if (mostrandoCoautores) {
+        // se está mostrando coautores → volta pra capa
+        mostrandoCoautores = false;
+        imgCapa.style.opacity = '1';
+        imgCoautores.style.opacity = '0';
+        overlay.style.opacity = '0';
+        mostrandoOverlay = false;
+      } else {
+        // toggle do overlay
+        mostrandoOverlay = !mostrandoOverlay;
+        overlay.style.opacity = mostrandoOverlay ? '1' : '0';
+      }
+    });
+
+    // ===== Botão Co-autores =====
     btnCoautores.addEventListener('click', (event) => {
-      event.stopPropagation(); 
-      
+      event.stopPropagation();
+      mostrandoCoautores = true;
+      mostrandoOverlay = false;
+
       overlay.style.opacity = '0';
       imgCapa.style.opacity = '0';
-    
       imgCoautores.style.opacity = '1';
     });
-    
-    card.addEventListener('mouseleave', () => {
-      imgCapa.style.opacity = '1';
-      imgCoautores.style.opacity = '0';
-      
-      overlay.style.opacity = '0';
-    });
-    
-    card.addEventListener('mouseenter', () => {
-        if (imgCoautores.style.opacity !== '1') {
-            overlay.style.opacity = '1';
-        }
-    });
   });
+
+  // Detecta se é mobile
+  function isMobile() {
+    return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  }
 });
