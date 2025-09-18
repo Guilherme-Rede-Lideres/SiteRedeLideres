@@ -66,11 +66,21 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   margin: 0 auto;
   text-align: center;
 }
+.section-title{
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.01em;
+  font-family: "REDE-BOLD", sans-serif;
+}
+
 .section-titlee{
   margin: 0 0 0.5rem 0;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   text-align: center;
+  margin-bottom: 20px;
   letter-spacing: -0.01em;
   font-family: "REDE-BOLD", sans-serif;
 }
@@ -123,7 +133,12 @@ body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helv
   .photo img{
     height: 300px;
   }
+
+   .card {
+          width: 100%;
+        }
 }
+
 
 /* VIDEO SECTION */
 .video-section {
@@ -753,32 +768,7 @@ section.timeline {
             padding: 40px 20px;
         }
 
-        .titulo-secao {
-            text-align: center;
-            margin-bottom: 50px;
-            display: flex;
-            width: 100%;
-
-        }
-
-        .titulo-secao h1 {
-            color: #ffffff;
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .titulo-secao::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, #ffffff, #888);
-            margin: 20px auto;
-        }
-
+       
         .area-carrossel {
             position: relative;
             overflow: hidden;
@@ -1070,6 +1060,11 @@ section.timeline {
     height: 100px;
   }
 
+  
+   .card {
+          width: 100%;
+        }
+
   .nome-lider {
     font-size: 1.2rem;
   }
@@ -1351,7 +1346,7 @@ img, video {
         }
 
       .section-artigos{
-        padding: 40px; align-items: center; display: flex; justify-content: center; text-align: center;
+        align-items: center; display: flex; justify-content: center; text-align: center;
       }
    
 
@@ -1362,9 +1357,15 @@ img, video {
                 text-align: center;
             }
 
-            .section-artigos{
-              justify-content: start;
-            }
+           .carousel-container{
+                max-width: 100%;
+    margin: 0 auto;
+           }
+
+    .section-titlee {
+        font-size: 1.3rem;
+        text-align: center;
+    }
 
             .secao-titulo::before {
                 display: none;
@@ -1726,13 +1727,11 @@ img, video {
 
 .soluction-sec{
   height: 10vh;
-   background: linear-gradient(
-    to bottom,
-    #000000 40%,   /* bege bem claro para o topo */  /* areia suave */
-    #ffffff 60%  /* marrom/laranja queimado que combina com o tijolo */
-  );
+background-color: black;
 align-items: center;
   text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
 .soluction-sec h1{

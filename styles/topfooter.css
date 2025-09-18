@@ -237,4 +237,8 @@
       section {
         flex-direction: column;
       }
+
+       .card {
+        width: 100%;
+       }
     }
