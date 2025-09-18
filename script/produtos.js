@@ -1,119 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-          // Carrossel só executa se existir na página
-          const track = document.getElementById('carouselTrack');
-          const indicators = document.getElementById('indicators');
-          if (track && indicators) {
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const totalSlides = slides.length;
-
-            // Criar indicadores
-            function createIndicators() {
-                for (let i = 0; i < totalSlides; i++) {
-                    const indicator = document.createElement('div');
-                    indicator.className = 'indicator';
-                    indicator.addEventListener('click', () => goToSlide(i));
-                    indicators.appendChild(indicator);
-                }
-                updateIndicators();
-            }
-
-            // Atualizar indicadores
-            function updateIndicators() {
-                const allIndicators = document.querySelectorAll('.indicator');
-                allIndicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
-                });
-            }
-
-            // Ir para slide específico
-            function goToSlide(slideIndex) {
-                currentSlide = slideIndex;
-                const translateX = -currentSlide * 100;
-                track.style.transform = `translateX(${translateX}%)`;
-                updateIndicators();
-                updateNavButtons();
-            }
-
-            // Próximo slide
-            function nextSlide() {
-                if (currentSlide < totalSlides - 1) {
-                    goToSlide(currentSlide + 1);
-                }
-            }
-
-            // Slide anterior
-            function previousSlide() {
-                if (currentSlide > 0) {
-                    goToSlide(currentSlide - 1);
-                }
-            }
-
-            // Atualizar botões de navegação
-            function updateNavButtons() {
-                document.getElementById('prevBtn').disabled = currentSlide === 0;
-                document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
-            }
-
-            // Reproduzir vídeo (placeholder)
-            function playVideo(button) {
-                const container = button.parentElement;
-                // Aqui você pode adicionar a lógica para reproduzir o vídeo real
-                // Por exemplo, substituir o placeholder por um elemento de vídeo
-                
-                // Exemplo de feedback visual
-                button.style.transform = 'translate(-50%, -50%) scale(0.9)';
-                setTimeout(() => {
-                    button.style.transform = 'translate(-50%, -50%) scale(1)';
-                }, 150);
-                
-                // Simular carregamento do vídeo
-                console.log('Reproduzindo vídeo...');
-                alert('Aqui você integraria seu player de vídeo favorito!');
-            }
-
-            // Auto-play do carrossel
-            function startAutoPlay() {
-                setInterval(() => {
-                    if (currentSlide < totalSlides - 1) {
-                        nextSlide();
-                    } else {
-                        goToSlide(0);
-                    }
-                }, 8000); // 8 segundos
-            }
-
-            // Inicializar carrossel
-            function initCarousel() {
-                createIndicators();
-                updateNavButtons();
-                startAutoPlay();
-            }
-
-            initCarousel();
-
-            // Suporte para navegação por teclado
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    previousSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
-            });
-
-            // Pausar auto-play quando o mouse estiver sobre o carrossel
-            const carousel = document.querySelector('.carousel-container');
-            let autoPlayPaused = false;
-
-            carousel.addEventListener('mouseenter', () => {
-                autoPlayPaused = true;
-            });
-
-            carousel.addEventListener('mouseleave', () => {
-                autoPlayPaused = false;
-            });
-          }
-
+          
           // Timeline (mantém funcionando)
           const contents = {
             1: {
@@ -237,3 +123,104 @@ document.addEventListener('DOMContentLoaded', () => {
     return /Mobi|Android|iPhone/i.test(navigator.userAgent);
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-cont');
+    const cards = Array.from(track.children);
+    const cardWidth = cards[0].getBoundingClientRect().width + 20; // gap entre cards
+
+    // Clonar os cards para criar loop infinito
+    const clones = cards.map(card => card.cloneNode(true));
+    clones.forEach(clone => track.appendChild(clone));
+
+    let position = 0;
+    const speed = 0.5; // pixels por frame
+
+    function animate() {
+        position += speed;
+        track.style.transform = `translateX(-${position}px)`;
+        track.style.transition = 'transform 0.02s linear';
+
+        // Reinicia quando passar o total dos cards originais
+        if (position >= cardWidth * cards.length) {
+            position = 0;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${position}px)`;
+            requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.02s linear';
+            });
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Swipe Mobile
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = 'none';
+    });
+
+    track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const moveX = startX - currentX;
+        position += moveX;
+        track.style.transform = `translateX(-${position}px)`;
+        startX = currentX;
+    });
+
+    track.addEventListener('touchend', e => {
+        isDragging = false;
+        track.style.transition = 'transform 0.02s linear';
+    });
+});
+
+
+   // Intersection Observer para animações
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os itens da timeline
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Função para voltar ao topo
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Mostrar/esconder indicador de scroll
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 300) {
+                scrollIndicator.style.opacity = '1';
+            } else {
+                scrollIndicator.style.opacity = '0.7';
+            }
+        });
+
+        // Animação suave ao carregar
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
