@@ -1,65 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-          
-          // Timeline (mantém funcionando)
-          const contents = {
-            1: {
-            title: "VALOR AGREGADO REAL E DIÁRIO",
-            text: "Atendemos todos os dias os nossos líderes e empresas em demandas diversas. Qualquer decisor possui vários interesses, como qualificação profissional, posicionamento no mercado de trabalho, indicação para vagas e networking qualificado. Ajudamos todos nossos líderes diariamente.Somos um parceiro para toda jornada da vida profissional e empresarial."
-          },
-          2: {
-            title: "VALOR AGREGADO REAL E DIÁRIO",
-            text: "Atendemos todos os dias os nossos líderes e empresas em demandas diversas. Qualquer decisor possui vários interesses, como qualificação profissional, posicionamento no mercado de trabalho, indicação para vagas e networking qualificado. Ajudamos todos nossos líderes diariamente.Somos um parceiro para toda jornada da vida profissional e empresarial."
-          },
-          3: {
-            title: "CONHECIMENTO DE DENTRO DAS EMPRESAS",
-            text: "Não somos observadores. Somos praticantes. Atuamos dentro das empresas. Estamos no dia a dia de cada líder e empresa. Seja como criadores, como aconteceu no iFood e Loggi, seja como parceiro de empresas como Mercado Livre e OLX. Por isso, temos autoridade, reputação e credibilidade."
-          },
-          4: {
-            title: "SOMOS UMA NOVA GERAÇÃO DE LÍDERES",
-            text: "Estar conosco é entender as dores e as novas soluções do mercado antecipadamente. Somos uma nova geração de líderes com novos hábitos e novas formas de se relacionar."
-
-          },
-          5: {
-            title: "Turning point",
-            text: "Estar conosco é entender as dores e as novas soluções do mercado antecipadamente. Somos uma nova geração de líderes com novos hábitos e novas formas de se relacionar."
-          },
-        };
-
-        const navItems = document.querySelectorAll(".timeline-nav li");
-        const contentBox = document.querySelector(".timeline-content");
-        const yearEl = contentBox.querySelector(".year");
-        const titleEl = contentBox.querySelector("h1");
-        const textEl = contentBox.querySelector("p");
-
-        navItems.forEach(item => {
-          item.addEventListener("click", () => {
-            document.querySelector(".timeline-nav li.active")?.classList.remove("active");
-            item.classList.add("active");
-
-            const year = item.dataset.year;
-
-            // animação de saída
-            contentBox.classList.add("fade-out");
-
-            setTimeout(() => {
-              // troca o conteúdo
-              yearEl.textContent = year;
-              titleEl.innerHTML = contents[year].title;
-              textEl.textContent = contents[year].text;
-
-              // animação de entrada
-              contentBox.classList.remove("fade-out");
-              contentBox.classList.add("fade-in");
-
-              setTimeout(() => contentBox.classList.remove("fade-in"), 800);
-            }, 800);
-          });
-        });
-
-
-
-         AOS.init();
-        });
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -224,3 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', () => {
             document.body.style.opacity = '1';
         });
+
+
+        
+   const menuBtn = document.getElementById("menuBtn");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const closeBtn = document.getElementById("closeBtn");
+
+    menuBtn.addEventListener("click", () => {
+      menuOverlay.classList.add("show");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menuOverlay.classList.remove("show");
+    });
