@@ -140,6 +140,15 @@
       color: #aaa;
     }
 
+      .desktop { display: block; }
+  .mobile { display: none; }
+
+  /* Mobile: troca vídeo */
+  @media (max-width: 767px) {
+    .desktop { display: none; }
+    .mobile { display: block; }
+  }
+
     @media (max-width: 900px) {
       footer {
         grid-template-columns: 1fr 1fr;
