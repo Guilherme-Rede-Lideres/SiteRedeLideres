@@ -140,13 +140,16 @@
       color: #aaa;
     }
 
-      .desktop { display: block; }
-  .mobile { display: none; }
-
-  /* Mobile: troca vídeo */
-  @media (max-width: 767px) {
-    .desktop { display: none; }
-    .mobile { display: block; }
+     .video-section2{position:relative; width:100%; height:56vh; overflow:hidden;}
+  .video-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .overlay{position:absolute; inset:0; background:rgba(0,0,0,.25);}
+  /* Desktop por padrão */
+  .desktop{display:block}
+  .mobile{display:none}
+  /* Mobile */
+  @media (max-width: 767px){
+    .desktop{display:none}
+    .mobile{display:block}
   }
 
     @media (max-width: 900px) {
