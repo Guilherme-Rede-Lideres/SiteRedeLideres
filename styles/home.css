@@ -762,3 +762,84 @@
   align-items: center;
   height: 2vh;
 }
+
+
+
+  :root{
+    --bg:#000000;
+    --fg:#e8ecf1;
+    --ac:#6ea8fe;
+  }
+
+  .solucoes{
+    background: var(--bg);
+    color: var(--fg);
+    height: 26vh;           /* < 30vh como pedido */
+    min-height: 200px;      /* garante boa leitura em telas baixas */
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+    overflow: hidden;
+  }
+
+  .wrap{
+    width: min(1200px, 95vw);
+  }
+
+  .titulo{
+    font: 600 1.25rem/1.2 system-ui, -apple-system, ;
+    font-family: "rede-bold";
+    letter-spacing: .2px;
+    margin: 0 0 1rem 0;
+    color: var(--fg);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .marquee{
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .pista{
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    animation: deslizar 18s linear infinite;
+  }
+
+  .pista li{
+    display: inline-flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    border: 1px solid rgb(0, 247, 255);
+    font-family: "rede-bold";
+    font: 500 2rem/1 system-ui, -apple-system,;
+    background: rgba(255,255,255,.04);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset, 0 6px 20px rgba(0, 0, 0, 0);
+  }
+
+  .pista li:hover{
+    border-color: rgba(255,255,255,.3);
+    background: rgba(255,255,255,.08);
+  }
+
+  @keyframes deslizar{
+    from{ transform: translateX(0); }
+    to  { transform: translateX(-50%); } /* metade pois a lista está duplicada */
+  }
+
+  /* Acessibilidade: alto contraste opcional */
+  @media (prefers-contrast: more){
+    .pista li{ border-color: rgba(255,255,255,.35); }
+  }
+
+  /* Reduzir movimento se o usuário preferir */
+  @media (prefers-reduced-motion: reduce){
+    .pista{ animation-duration: 20s; }
+  }

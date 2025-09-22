@@ -56,7 +56,9 @@
 
     <section id="sec1" class="panel fallback-1">
       <video id="video1" class="bg" autoplay muted loop playsinline preload="auto">
-        <source src="/assets/squads.mov" type="video/mp4" />
+  <source src="/assets/squads.mov" type="video/mp4" media="(min-width: 768px)">
+  <!-- Vídeo para celular -->
+  <source src="/assets/IMG_8171.MOV" type="video/mp4" media="(max-width: 767px)">
       </video>
       <div class="center">
         <h1 style="font-weight:600; font-size:clamp(1.5rem, 3vw + 1rem, 3rem);">SQUADS</h1>
@@ -354,6 +356,33 @@
   </div>
 </section>
 
+<section class="solucoes">
+  <div class="wrap">
+    <h2 class="titulo">Nossas soluções são para as seguintes áreas</h2>
+
+    <div class="marquee" aria-label="Soluções para os seguintes públicos">
+        <ul class="pista">
+        <li>CEOS</li>
+        <li>CIBERSEGURANÇA, PROTEÇÃO DE DADOS E ANTIFRAUDE</li>
+        <li>FINANÇAS</li>
+        <li>CX</li>
+        <li>RH</li>
+        <li>TECNOLOGIA E PRODUTOS</li>
+        <li>JURÍDICO</li>
+
+        <!-- Duplicado para efeito infinito suave -->
+        <li>CEOS</li>
+        <li>CIBERSEGURANÇA, PROTEÇÃO DE DADOS E ANTIFRAUDE</li>
+        <li>FINANÇAS</li>
+        <li>CX</li>
+        <li>RH</li>
+        <li>TECNOLOGIA E PRODUTOS</li>
+        <li>JURÍDICO</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="saiba-mais">
    <div >
           <button class="btn2">Saiba mais <i class="fa-solid fa-arrow-up"></i></i></button>
@@ -364,12 +393,16 @@
     
     <div class="card">
       <p>Soluções para Líderes</p>
-      <button class="btn2">Entre em contato  <i class="fa-brands fa-whatsapp"></i></button>
+<a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=5511984264469&text&type=phone_number&app_absent=" target="_blank" class="btn2">
+  Entre em contato <i class="fa-brands fa-whatsapp"></i>
+</a>
     </div>
 
     <div class="card">
       <p>Soluções para Empresas</p>
-          <button class="btn2">Entre em contato  <i class="fa-brands fa-whatsapp"></i></button>
+        <a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=5511984264469&text&type=phone_number&app_absent=" target="_blank" class="btn2">
+  Entre em contato <i class="fa-brands fa-whatsapp"></i>
+</a>
     </div>
   </section>
 
@@ -377,7 +410,7 @@
     <div>
       <h4>Sobre a Rede Lideres</h4>
       <p>
-  A Rede Líderes é uma comunidade que conecta decisores empresariais e empresas de tecnologia para gerar negócios, compartilhar conhecimento e acelerar a inovação. Reunimos CEOs, CTOs e líderes de diversas áreas para trocar experiências, construir conexões estratégicas e antecipar soluções que impactam diretamente o mercado.
+  A Rede Líderes é uma comunidade que conecta decisores empresariais com soluções de tecnologia para gerar negócios, compartilhar conhecimento e acelerar a inovação. Reunimos CEOs, CTOs e líderes de diversas áreas para trocar experiências, construir conexões estratégicas e antecipar soluções que impactam diretamente o mercado.
       </p>
       <p>
        Não somos observadores. Somos praticantes. Atuamos dentro das empresas. Estamos no dia a dia de cada líder e empresa. Seja como criadores, como aconteceu no iFood e Loggi, seja como parceiro de empresas como Google, Meta e Uber. Por isso, temos autoridade, reputação e credibilidade com os decisores. SOMOS UMA NOVA GERAÇÃO DE LÍDERES.
