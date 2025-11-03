@@ -169,7 +169,7 @@
   background: #000; /* fundo preto */
   color: #fff;
   padding: 4rem 2rem;
-   background-image: url('../assets/bolha2.png');
+   background-image: url('https://sh-pro128.hostgator.com.br:2083/cpsess5438571141/frontend/jupiter/filemanager/showfile.html?file=bolha2.png&fileop=&dir=%2Fhome2%2Frededi01%2Fredelideres.com%2Fvideos&dirop=&charset=&file_charset=&baseurl=&basedir=');
   background-repeat: no-repeat;
 }
 
@@ -311,9 +311,9 @@
             display: flex;
             align-items: center;
             gap: 100px;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 1;
+            transform: translateX(0);
+          
         }
 
         .number {
@@ -411,10 +411,6 @@
   
 }
 
-
-.number::before {
-  content: "+";
-}
 
 
 

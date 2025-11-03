@@ -51,7 +51,6 @@
       transition: transform 0.4s ease-in-out;
       z-index: 999;
       font-family: "rede-regular", sans-serif;
-      background-image: url('../assets/bolha2.png');
     }
     .menu-overlay.show {
       transform: translateX(0);

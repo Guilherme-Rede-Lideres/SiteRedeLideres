@@ -1,0 +1,52 @@
+Mover o WordPress para uma subpasta
+
+No cPanel, crie por exemplo /public_html/wp e mova todo o WordPress para lá:
+
+Tudo que é WP (inclusive wp-admin, wp-includes, wp-content, index.php, etc.) → /wp
+
+Seu novo site (HTML/JS/PHP “fora do WP”) fica diretamente em /public_html.
+
+Se seu WordPress já usa banco de dados na mesma hospedagem, não precisa mudar DB/usuário. Só vamos ajustar URLs.
+
+3) Ajustar as URLs do WordPress
+
+Edite wp-config.php (agora dentro de /public_html/wp) e force as URLs:
+
+define('WP_SITEURL', 'https://redelideres.com/wp');   // endereço do core WP
+define('WP_HOME',    'https://redelideres.com');      // endereço “público” do site
+
+
+Isso mantém o WP “morando” em /wp, mas considerando o domínio raiz como “home”.
+Não vamos copiar index.php do WP para a raiz (porque a home nova é fora do WP).
+
+4) Rotear apenas a página /conteudo-e-colunistas para o WP
+
+Na raiz (/public_html/.htaccess), antes de qualquer regra do seu novo site, coloque:
+
+# --- Início: roteia apenas a página do WordPress ---
+RewriteEngine On
+
+# 4.1) Envia a URL /conteudo-e-colunistas para o front controller do WP
+RewriteRule ^conteudo-e-colunistas/?$ /wp/index.php?pagename=conteudo-e-colunistas [L,QSA]
+
+# 4.2) Permite que os assets do WP carreguem (CSS, JS, imagens)
+RewriteRule ^wp-content/(.*)$ /wp/wp-content/$1 [L]
+RewriteRule ^wp-includes/(.*)$ /wp/wp-includes/$1 [L]
+RewriteRule ^wp-admin/(.*)$ /wp/wp-admin/$1 [L]
+
+# (Opcional) Se usar REST do WP nessa página (blocos, etc.):
+RewriteRule ^wp-json/(.*)$ /wp/index.php?rest_route=/$1 [L,QSA]
+# --- Fim: roteia somente o que é necessário do WP ---
+
+
+O resto das URLs não passa pelo WordPress e será atendido pelos arquivos do novo site na raiz.
+
+5) Testes
+
+Acesse https://redelideres.com/ → deve abrir seu novo site.
+
+Acesse https://redelideres.com/conteudo-e-colunistas → deve abrir a página do WP.
+
+Abra o inspetor de rede e veja se CSS/JS/imagens da página do WP carregam de /wp-content/....
+
+Se houver plugins que forçam redirecionamentos globais, desative-os (ex.: plugins de redirecionamento/forçar HTTPS se já faz isso no servidor/Cloudflare).
